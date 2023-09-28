@@ -4,6 +4,13 @@ import { assets } from '@/utils/asset-utils';
 import { type Framework, frameworks } from '@/utils/framework-utils';
 import { useState, useEffect } from 'react';
 import { cn } from '@/utils/tailwind-utils';
+import { Poppins } from 'next/font/google';
+import { FrameworkRotation } from '@/components/framework-roitation';
+
+const poppins = Poppins({
+  weight: '700',
+  subsets: ['latin']
+})
 
 export default function Home() {
   const [currentFramework, setCurrentFramework] = useState<Framework>(frameworks[0]);
@@ -54,6 +61,20 @@ export default function Home() {
         !showBackground ? 'opacity-100' : 'opacity-0'
       )}
       />
+      <div className="max-w-5xl mt-20 mx-auto">
+        <div className="flex fle-col items-center relative z-10">
+          <h1 className={`text-7-xl max-wl-3xl text-center leading-snug mb-12 ${poppins.className}`}>
+            <Image 
+              alt="Figma-logo"
+              className="inline-block mr-8 -mt-2"
+              src={assets.figma}
+              width="50"
+              height="50"
+            />
+            to <FrameworkRotation currentFramework={currentFramework}/> <span>never</span> be the same
+          </h1>
+        </div>
+      </div>
     </main>
   )
 }
