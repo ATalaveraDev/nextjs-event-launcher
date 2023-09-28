@@ -34,18 +34,19 @@ export default function Home() {
   return (
     <main>
       <div 
-      className={cn("fixed inset-0 transition-color delay-100 duration-700 opacity-25", 
-      {
-        "bg-purple-300": currentFramework === "qwik",
-        "bg-sky-300": currentFramework === "safari",
-        "bg-yellow-300": currentFramework === "chrome",
-        "bg-teal-300": currentFramework === "tailwind",
-        "bg-blue-300": currentFramework === "react",
-        "bg-green-300": currentFramework === "vue",
-        "bg-orange-400": currentFramework === "svelte",
-        "bg-red-300": currentFramework === "mobile",
-        "bg-neutral-300": currentFramework === "desktop"
-      }  
+      className={cn(
+        'fixed inset-0 transition-color delay-100 duration-700 opacity-25', 
+        {
+          'bg-purple-300': currentFramework === 'qwik',
+          'bg-sky-300': currentFramework === 'safari',
+          'bg-yellow-300': currentFramework === 'chrome',
+          'bg-teal-300': currentFramework === 'tailwind',
+          'bg-blue-300': currentFramework === 'react',
+          'bg-green-300': currentFramework === 'vue',
+          'bg-orange-400': currentFramework === 'svelte',
+          'bg-red-300': currentFramework === 'mobile',
+          'bg-neutral-300': currentFramework === 'desktop'
+        }  
       )}
       />
       <Image width={1200} height={1200} role="presentation" alt="gradient background" className="fixed inset-0 w-screen h-screen object-cover" src={assets.gradient} />
@@ -62,7 +63,7 @@ export default function Home() {
       )}
       />
       <div className="max-w-5xl mt-20 mx-auto">
-        <div className="flex fle-col items-center relative z-10">
+        <div className="flex flex-col items-center relative z-10">
           <h1 className={`text-7-xl max-wl-3xl text-center leading-snug mb-12 ${poppins.className}`}>
             <Image 
               alt="Figma-logo"
@@ -73,6 +74,42 @@ export default function Home() {
             />
             to <FrameworkRotation currentFramework={currentFramework}/> <span>never</span> be the same
           </h1>
+          <p className="mb-8">
+            <span className="text-gray-300">
+              Join Us
+            </span>
+            <Image
+              alt="logo"
+              className="inline-block ml-1"
+              height={20}
+              width={100}
+              src={assets.builder}
+            />
+            {" + "}
+            <Image
+              alt="logo"
+              className="inline-block mx-1"
+              height={20}
+              width={55}
+              src={assets.figmatwo}
+            />
+          </p>
+          <div className="mb-8">
+            <button className={cn(
+              'text-black px-6 py-3 rounded-md text-sm font-semibold transition-colors duration-200',
+              {
+                "bg-purple-300": currentFramework === "qwik",
+                "bg-sky-300": currentFramework === "safari",
+                "bg-yellow-300": currentFramework === "chrome",
+                "bg-teal-300": currentFramework === "tailwind",
+                "bg-blue-300": currentFramework === "react",
+                "bg-green-300": currentFramework === "vue",
+                "bg-orange-400": currentFramework === "svelte",
+                "bg-red-300": currentFramework === "mobile",
+                "bg-neutral-300": currentFramework === "desktop"
+              }
+            )}>Claim Ticket</button>
+          </div>
         </div>
       </div>
     </main>
