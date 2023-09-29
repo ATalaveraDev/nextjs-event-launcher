@@ -1,10 +1,11 @@
 "use client";
 import Image from 'next/image';
+import { Poppins } from 'next/font/google';
+import { useState, useEffect } from 'react';
+
+import { cn } from '@/utils/tailwind-utils';
 import { assets } from '@/utils/asset-utils';
 import { type Framework, frameworks } from '@/utils/framework-utils';
-import { useState, useEffect } from 'react';
-import { cn } from '@/utils/tailwind-utils';
-import { Poppins } from 'next/font/google';
 import { FrameworkRotation } from '@/components/framework-roitation';
 
 const poppins = Poppins({
@@ -33,8 +34,7 @@ export default function Home() {
 
   return (
     <main>
-      <div 
-      className={cn(
+      <div className={cn(
         'fixed inset-0 transition-color delay-100 duration-700 opacity-25', 
         {
           'bg-purple-300': currentFramework === 'qwik',
@@ -49,19 +49,16 @@ export default function Home() {
         }  
       )}
       />
-      <Image width={1200} height={1200} role="presentation" alt="gradient background" className="fixed inset-0 w-screen h-screen object-cover" src={assets.gradient} />
-      <div className="fixed inset-0 opacity-30"
-      style={{
-        backgroundImage: `url(${assets.square})`,
-        backgroundSize: "30px"
-      }}
+      <Image 
+        width={1200}
+        height={1200}
+        role="presentation"
+        alt="gradient background"
+        className="fixed inset-0 w-screen h-screen object-cover"
+        src={assets.gradient} 
       />
-      <div 
-      className={cn(
-        'bg-black fixed inset-0 transition-opacity duration-[1500ms]', 
-        !showBackground ? 'opacity-100' : 'opacity-0'
-      )}
-      />
+      <div className="fixed inset-0 opacity-30" style={{ backgroundImage: `url(${assets.square})`, backgroundSize: '30px' }} />
+      <div className={cn('bg-black fixed inset-0 transition-opacity duration-[1500ms]', !showBackground ? 'opacity-100' : 'opacity-0')} />
       <div className="max-w-5xl mt-20 mx-auto">
         <div className="flex flex-col items-center relative z-10">
           <h1 className={`text-7-xl max-wl-3xl text-center leading-snug mb-12 ${poppins.className}`}>
@@ -98,17 +95,19 @@ export default function Home() {
             <button className={cn(
               'text-black px-6 py-3 rounded-md text-sm font-semibold transition-colors duration-200',
               {
-                "bg-purple-300": currentFramework === "qwik",
-                "bg-sky-300": currentFramework === "safari",
-                "bg-yellow-300": currentFramework === "chrome",
-                "bg-teal-300": currentFramework === "tailwind",
-                "bg-blue-300": currentFramework === "react",
-                "bg-green-300": currentFramework === "vue",
-                "bg-orange-400": currentFramework === "svelte",
-                "bg-red-300": currentFramework === "mobile",
-                "bg-neutral-300": currentFramework === "desktop"
+                'bg-purple-300': currentFramework === 'qwik',
+                'bg-sky-300': currentFramework === 'safari',
+                'bg-yellow-300': currentFramework === 'chrome',
+                'bg-teal-300': currentFramework === 'tailwind',
+                'bg-blue-300': currentFramework === 'react',
+                'bg-green-300': currentFramework === 'vue',
+                'bg-orange-400': currentFramework === 'svelte',
+                'bg-red-300': currentFramework === 'mobile',
+                'bg-neutral-300': currentFramework === 'desktop'
               }
-            )}>Claim Ticket</button>
+            )}>
+              Claim Ticket
+            </button>
           </div>
         </div>
       </div>
